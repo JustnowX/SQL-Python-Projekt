@@ -2,6 +2,7 @@
 import cx_Oracle
 
 config = open("lxc.conf", "r")
+#Zeilen in variable speichern
 line1 = config.readline()
 line2 = config.readline()
 line3 = config.readline()
@@ -83,7 +84,7 @@ print(arch)
 
 
 
-print("To add a Host press 'C'To add a Client press 'C'")
+print("To add a Host press 'H'To add a Client press 'C'")
 
 choice = input('?')
 
