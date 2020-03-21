@@ -24,12 +24,15 @@ cores = line2[slice(7, 20)]
 hostname  = line3[slice(10, 40)]
 memory  = line4[slice(8, 20)]
 net = line5[slice(23, 28)]
-ip = line5[slice(43, 56)]
+ip = line5[slice(83, 96)]
 ostype  = line6[slice(8, 40)]
 vmid = line7[slice(18, 24)]
 hdd = line7[slice(37, 45)]
 swap  = line8[slice(6, 20)]
-unprivileged  = line9[slice(14, 20)]
+unprivileged  = line9[slice(15, 16)]
+
+
+cores = cores.split()
 
 print(arch)
 print(cores)
