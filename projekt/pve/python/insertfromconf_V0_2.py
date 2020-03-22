@@ -32,7 +32,6 @@ con = cx_Oracle.connect(db_connection_string)
 #zeiger auf db_connection_string
 cursor = con.cursor()
 
-
 cursor.execute(f"""
     DROP TABLE t_client
     """)
@@ -49,6 +48,7 @@ cursor.execute(f"""
                                     CONSTRAINT uni_confqdn UNIQUE
         )
 """)
+
 cursor.execute(f"""
     CREATE TABLE t_client
         (
@@ -61,49 +61,40 @@ cursor.execute(f"""
             CONSTRAINT hostid_thost_tclient FOREIGN KEY (hid) REFERENCES t_host (hid)
         )
 """)
+
 cursor.execute(f"""
     INSERT
         INTO t_host
         VALUES (111, 'test.host.xxx')
 """)
 
-
-# s = "".join(config.read())
-
-print(arch)
-print(cores)
-print(hostname)
-print(memory)
-print(ostype)
-print(vmid)
-print(swap)
-print(unprivileged)
-
-
-print(arch)
-
-
+#Test ausgabe der variablen---------------------------
+# print(arch)
+# print(cores)
+# print(hostname)
+# print(memory)
+# print(ostype)
+# print(vmid)
+# print(swap)
+# print(unprivileged)
+#
+# print(arch)
+#-----------------------------------------------------
 
 print("To add a Host press 'H'To add a Client press 'C'")
-
 choice = input('?')
-
-# #open config file
-# file =  open('100.conf','r')
-# #in halt von file in einen string umwandeln
-# filestr = "".join(file.read())
 
 if choice == 'H' :
     print('Enter HostID:')
     hid = input()
     print("Enter FQDN:")
-    hfqdn = input()
+    hHostname = input()
 
     # Insert in die tabelle
     cursor.execute(f"""
         INSERT
           INTO t_host
-          VALUES ({hid}, '{hfqdn}')
+          VALUES ({hid}, '{hHostname}')
     """)
 
 elif choice == 'C' :
@@ -111,7 +102,7 @@ elif choice == 'C' :
     # Insert in die tabelle
     cursor.execute(f"""
             INSERT
-                INTO t_client (cid,     fqdn,      ip,      sysart,    hid)
+                INTO t_client (cid,     cHostname,      ip,      sysart,    hid)
                 VALUES        ('{vmid}', '{hostname}', '{ip}', '{ostype}', {chid})
         """)
 

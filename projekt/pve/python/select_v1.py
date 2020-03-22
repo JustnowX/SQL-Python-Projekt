@@ -6,7 +6,7 @@ con = cx_Oracle.connect(db_connection_string)
 cursor = con.cursor()
 
 
-cursor.execute("select * from t_client")
+cursor.execute("SELECT * FROM t_client")
 rows = cursor.fetchall()
 for row in rows:
     print(row)
