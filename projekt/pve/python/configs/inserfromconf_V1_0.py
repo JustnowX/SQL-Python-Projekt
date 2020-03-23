@@ -29,7 +29,7 @@ for i in vm_list:
     arch = line1[slice(6, 20)]
     cores = line2[slice(7, 20)]
     hostname  = line3[slice(10, 40)]
-    memory  = line4[slice(8, 20)]
+    ram  = line4[slice(8, 20)]
     net = line5[slice(23, 28)]
     ip = line5[slice(83, 96)]
     ostype  = line6[slice(8, 40)]
