@@ -1,11 +1,11 @@
-# C:\Users\Surface\Python\projekt\pve\python\insert.py
+# C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\insertmanuel_V0_1.py
 import cx_Oracle
 db_connection_string = 'ora1/ora1'
 con = cx_Oracle.connect(db_connection_string)
 
 cursor = con.cursor()
 
-print("To add a Host press 'C'To add a Client press 'C'")
+print("To add a Host press 'H'To add a Client press 'C'")
 choice = input('?')
 
 

@@ -11,7 +11,7 @@ print("To add a Host press 'C'To add a Client press 'C'")
 choice = input('?')
 
 #open config file
-file =  open('100.conf','r')
+file =  open('lxc.conf','r')
 #in halt von file in einen string umwandeln
 filestr = "".join(file.read())
 
