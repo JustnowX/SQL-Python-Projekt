@@ -26,6 +26,7 @@ CREATE TABLE t_client
   OS_Type       VARCHAR2(16)  CONSTRAINT OSType_nn_tclient    NOT NULL,
   cIP           VARCHAR2(20)  CONSTRAINT conip_tclient        UNIQUE,
   RAM           VARCHAR2(5)   CONSTRAINT consysart_nn_tclient NOT NULL,
+  cores         VARCHAR2(3)   CONSTRAINT cores_t_client       NOT NULL,
   Hostname      VARCHAR2(20),
   disk_space    VARCHAR2(20)  CONSTRAINT disk_space_nn        NOT NULL,
   Clientname    VARCHAR2(20)  CONSTRAINT Clientname_nn        NOT NULL,

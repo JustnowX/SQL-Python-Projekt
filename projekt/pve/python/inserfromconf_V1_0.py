@@ -11,6 +11,8 @@ cursor = con.cursor()
 # Gets List of VMs
 vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs")
 vm_list.remove("inserfromconf_V1_0.py")
+vm_list.remove("hostconf")
+vm_list.remove(".100.conf.swp")
 for i in vm_list:
     config = open(i)
 
@@ -26,33 +28,29 @@ for i in vm_list:
     line9 = config.readline()
 
     # passenden ausszug [slice(x,x)] übergeben
+    arch = line1[slice(6, 20)]
+    cores = line2[slice(7, 20)]
     clientname  = line3[slice(10, 40)]
     ram  = line4[slice(8, 20)]
     ip = line5[slice(83, 96)]
     ostype  = line6[slice(8, 40)]
     vmid = line7[slice(21, 24)]
     disk_space = line7[slice(37, 45)]
-    SubnetID  = '192.168.1.1/24'
-    Hostname = 'hostxxx'
-
-
+    SubnetID  = f"{line5[slice(43, 53)]}0/24"
+    Hostname = 'pve'
+    print(vmid)
     cursor.execute(f"""
         INSERT
-            INTO t_client (VMID,     OS_Type,    cIP,     RAM,   Hostname,    disk_space, Clientname)
-            VALUES        ('{vmid}', '{ostype}', '{ip}','{ram}', '{Hostname}','{disk_space}',   '{clientname}'  )
+            INTO t_client (VMID,     OS_Type,    cIP,     RAM, cores,  Hostname,    disk_space, Clientname)
+            VALUES        ('{vmid}', '{ostype}', '{ip}','{ram}','{cores}', '{Hostname}','{disk_space}',   '{clientname}')
         """)
-    print('hallo')
+
     cursor.execute(f"""
         INSERT
             INTO clientSubnet
             VALUES      ('{SubnetID}','{vmid}' )
     """)
+    con.commit()
 
-con.commit()
+
 config.close()
-#test insert --------------------------------------------------
-
-
-#INSERT
-#  INTO t_client (cid, fqdn,            ip,               sysart,  hid)
-#  VALUES        (101, 'testclient.xxx', '192.168.1.101', 'debian', 111);
