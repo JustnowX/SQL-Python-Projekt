@@ -22,7 +22,7 @@ CREATE TABLE t_host
 
 CREATE TABLE t_client
 (
-  VMID          VARCHAR2(6)   CONSTRAINT PK_VMID              PRIMARY KEY,
+  VMID          NUMBER        CONSTRAINT PK_VMID              PRIMARY KEY,
   OS_Type       VARCHAR2(16)  CONSTRAINT OSType_nn_tclient    NOT NULL,
   cIP           VARCHAR2(20)  CONSTRAINT conip_tclient        UNIQUE,
   RAM           VARCHAR2(5)   CONSTRAINT consysart_nn_tclient NOT NULL,
@@ -57,10 +57,11 @@ CREATE TABLE hostsubnet
 CREATE TABLE clientSubnet
 (
   SubnetID    VARCHAR2(20),
-  VMID        VARCHAR2(6),
+  VMID        NUMBER,
               CONSTRAINT    subnetID_fk_client     FOREIGN KEY (SubnetID) REFERENCES Subnet (SubnetID),
               CONSTRAINT    VMID_fk_2              FOREIGN KEY (VMID)     REFERENCES t_client (VMID),
               CONSTRAINT    PK_clientsubnet        PRIMARY KEY (SubnetID, VMID)
 );
 
 COMMIT;
+exit
