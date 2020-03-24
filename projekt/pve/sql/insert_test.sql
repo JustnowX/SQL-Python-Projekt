@@ -11,28 +11,62 @@ REM Test insert -----------------------------------
 
 INSERT
   INTO t_host
-  VALUES (111, 'test.xxx');
+  VALUES ('192.168.1.222', 'TESTHORST');
 
 INSERT
   INTO t_host
-  VALUES (222, 'anushost.xxx');
+  VALUES ('192.168.1.111', 'hostxxx');
 
 INSERT
-  INTO t_client (cid, cfqdn,            ip,               sysart,  hid)
-  VALUES        (101, 'testclient.xxx', '192.168.1.101', 'debian', 111);
+  INTO t_client (VMID, OS_Type,         cIP,       RAM,  Hostname, disk_space, Clientname)
+  VALUES        ('101', 'debian', '192.168.1.101', '500', 'hostxxx', '500', 'client101');
 
 INSERT
-  INTO t_client (cid, cfqdn,            ip,               sysart,  hid)
-  VALUES        (102, 'hammel.xxx', '192.168.1.102', 'debian', 111);
+  INTO t_client (VMID, OS_Type,         cIP,       RAM,  Hostname, disk_space, Clientname)
+  VALUES        ('102', 'anusoo', '192.168.1.102', '500', 'TESTHORST', '500', 'client102');
 
 INSERT
-  INTO t_client (cid, cfqdn,            ip,               sysart,  hid)
-  VALUES        (103, 'windows10.xxx', '192.168.1.103', 'Win10', 111);
+  INTO t_client (VMID, OS_Type,         cIP,       RAM,  Hostname, disk_space, Clientname)
+  VALUES        ('201', 'ubuntu', '192.168.1.201', '500', 'TESTHORST', '30', 'client201');
 
 INSERT
-  INTO t_client (cid, cfqdn,            ip,               sysart,  hid)
-  VALUES        (104, 'ubuntu1.xxx', '192.168.1.104', 'ubuntu', 222);
+  INTO t_client (VMID, OS_Type,         cIP,       RAM,  Hostname, disk_space, Clientname)
+  VALUES        ('333', 'ubuntu', '192.168.1.333', '500', 'hostxxx', '50', 'client333');
 
-  INSERT
-    INTO t_client (cid, cfqdn,            ip,               sysart,  hid)
-    VALUES        (105, 'ubuntu2.xxx', '192.168.1.105', 'ubuntu', 222);
+INSERT
+  INTO HDDs
+  VALUES        ('local','TESTHORST');
+
+INSERT
+  INTO HDDs
+  VALUES        ('local-lvm','hostxxx');
+
+INSERT
+  INTO Subnet
+  VALUES        ('192.168.1.1/24');
+
+INSERT
+  INTO hostSubnet
+  VALUES        ('192.168.1.1/24', 'TESTHORST');
+
+INSERT
+  INTO hostSubnet
+  VALUES        ('192.168.1.1/24', 'hostxxx');
+
+INSERT
+  INTO clientSubnet
+  VALUES        ('192.168.1.1/24', '101');
+
+INSERT
+  INTO clientSubnet
+  VALUES        ('192.168.1.1/24', '102');
+
+INSERT
+  INTO clientSubnet
+  VALUES        ('192.168.1.1/24', '201');
+
+INSERT
+  INTO clientSubnet
+  VALUES        ('192.168.1.1/24', '333');
+
+COMMIT;
