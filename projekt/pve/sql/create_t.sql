@@ -13,20 +13,53 @@ DROP TABLE t_host;
 
 CREATE TABLE t_host
 (
-  hid          VARCHAR2(5)     CONSTRAINT conhostid_thost   PRIMARY KEY,
-  hHostname    VARCHAR2(30)    CONSTRAINT nn_hHostname      NOT NULL
-                               CONSTRAINT uni_confqdn       UNIQUE
+  hIP          VARCHAR2(30),
+  Hostname    VARCHAR2(30)    CONSTRAINT PK_hHostname      PRIMARY KEY
 );
 
 CREATE TABLE t_client
 (
-  cid           VARCHAR2(5)   CONSTRAINT conclientid_tclient  PRIMARY KEY,
-  cHostname     VARCHAR2(30)  CONSTRAINT confqdn_nn_tclient   NOT NULL
-                              CONSTRAINT confqdn_uniq_tclient UNIQUE,
-  ip            VARCHAR2(30)  CONSTRAINT conip_tclient        UNIQUE,
-  sysart        VARCHAR2(30)  CONSTRAINT consysart_nn_tclient NOT NULL,
-  hid           VARCHAR2(5),
-                CONSTRAINT hostid_thost_tclient FOREIGN KEY (hid) REFERENCES t_host (hid)
+  VMID          VARCHAR2(5)   CONSTRAINT PK_VMID              PRIMARY KEY,
+  OS_Type       VARCHAR2(30)  CONSTRAINT OSType_nn_tclient    NOT NULL,
+  cIP           VARCHAR2(30)  CONSTRAINT conip_tclient        UNIQUE,
+  RAM           VARCHAR2(30)  CONSTRAINT consysart_nn_tclient NOT NULL,
+  Hostname      VARCHAR2(20),
+  disk_space    VARCHAR2(20)  CONSTRAINT disk_space_nn        NOT NULL,
+  Clientname    VARCHAR2(20)  CONSTRAINT Clientname_nn        NOT NULL,
+                CONSTRAINT Hostname_FK_tclient FOREIGN KEY (Hostname) REFERENCES t_host (Hostname)
 );
 
-COMMIT;
+CREATE TABLE HDDs
+(
+  HDD_ID        VARCHAR2(20),
+  Hostname      VARCHAR2(20),
+  CONSTRAINT    FK_HDDs     FOREIGN KEY (Hostname) REFERENCES t_host (Hostname),
+  CONSTRAINT    PK_hdds     PRIMARY KEY (HDD_ID , Hostname)
+
+);
+CREATE TABLE Subnet
+(
+  SubnetID      VARCHAR2(20)  CONSTRAINT pk_subnet  PRIMARY KEY
+);
+
+CREATE TABLE hostsubnet
+(
+  SubnetID    VARCHAR2(20),
+  Hostname    VARCHAR2(20),
+  CONSTRAINT    subnetID_fk   FOREIGN KEY (SubnetID) REFERENCES Subnet (SubnetID),
+  CONSTRAINT    VMID_fk       FOREIGN KEY (Hostname) REFERENCES t_host (Hostname),
+  CONSTRAINT    PK_hostsubnet PRIMARY KEY (SubnetID , Hostname)
+
+);
+
+CREATE TABLE clientSubnet
+(
+  SubnetID    VARCHAR2(20),
+  VMID        VARCHAR2(20),
+  CONSTRAINT    subnetID_fk     FOREIGN KEY (SubnetID) REFERENCES Subnet (SubnetID),
+  CONSTRAINT    VMID_fk         FOREIGN KEY (VMID)     REFERENCES t_client (VMID),
+  CONSTRAINT    PK_clientsubnet PRIMARY KEY (SubnetID , VMID)
+
+);
+
+REM COMMIT;
