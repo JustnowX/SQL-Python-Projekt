@@ -1,4 +1,4 @@
-REM @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\proxmoxdb\db\data\create_t.sql
+REM @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Vorlagen\sql-unterricht\create.sql
 
 set NULL 'N/A'
 set linesize 200
@@ -65,9 +65,3 @@ CREATE TABLE t_clientSubnet
 );
 
 COMMIT;
-REM exit
-
-
-CL SCR
-
-@&pfad.\db\data\0.sql
