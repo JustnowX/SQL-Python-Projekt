@@ -21,6 +21,8 @@ PROMPT (4) Delete Data
 PROMPT
 PROMPT (5) Select
 PROMPT
+PROMPT (6) Reset Data
+PROMPT
 PROMPT (0) Close
 PROMPT
 PROMPT++++++++++++++++++++++++++++++++++++++
