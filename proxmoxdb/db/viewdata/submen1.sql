@@ -1,5 +1,6 @@
 REM View Database
 
+REM @&pfad\db\viewdata\submen1.sql
 
 PROMPT View Database
 PROMPT++++++++++++++++++++++++++++++++++++++

@@ -1,4 +1,5 @@
 cl scr
+REM @&pfad\db\viewdata\3.sql
 
 
 PROMPT+++++++++++++++++++++++++++++++

@@ -1,4 +1,5 @@
-REM 0.sql
+REM @&pfad\db\viewdata\0.sql
+REM Zurück zum hauptmenü
 
 cl scr
 

@@ -1,5 +1,5 @@
-REM Skript: start
-REM @C:\Users\thema\Desktop\proxmoxdb\start.sql
+REM Start
+REM @&pfad.\proxmoxdb\start.sql
 REM Aufrufe des Hauptmenues: mainmenu.sql
 
 SET ECHO OFF

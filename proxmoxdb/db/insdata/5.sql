@@ -1,5 +1,5 @@
 
-REM @C:\Users\thema\Desktop\proxmoxdb\db\insdata\5.sql
+REM @&pfad\db\insdata\5.sql
 
 cl scr
 

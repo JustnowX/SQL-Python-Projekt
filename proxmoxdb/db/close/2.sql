@@ -1,4 +1,4 @@
-REM @C:\Users\thema\Desktop\proxmoxdb\beenden\2.sql
+REM @&pfad.\db\proxmoxdb\beenden\2.sql
 
 REM Zurück zum Hauptmenue
 
