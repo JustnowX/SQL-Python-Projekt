@@ -22,40 +22,40 @@ cursor.execute(f"""
 
 cursor.execute(f"""
     INSERT
-      INTO HDDs
+      INTO t_HDDs
       VALUES        ('local-lvm','pve')
 """)
 cursor.execute(f"""
     INSERT
-      INTO HDDs
+      INTO t_HDDs
       VALUES        ('local','pve')
 """)
 
 cursor.execute(f"""
     INSERT
-      INTO Subnet
+      INTO t_Subnet
       VALUES        ('192.168.1.0/24')
 """)
 cursor.execute(f"""
     INSERT
-      INTO Subnet
+      INTO t_Subnet
       VALUES        ('192.168.2.0/24')
 """)
 cursor.execute(f"""
     INSERT
-      INTO Subnet
+      INTO t_Subnet
       VALUES        ('192.168.3.0/24')
 """)
 cursor.execute(f"""
     INSERT
-      INTO hostSubnet
+      INTO t_hostSubnet
       VALUES        ('192.168.1.0/24', 'pve')
 """)
 con.commit()
 #------------------------------------------------------------------------------------
 
 # Gets List of VMs-------------------------------------------------------------------
-vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs")
+vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\bin")
 vm_list.remove("inserfromconf_V1_420.py")
 vm_list.remove("hostconf")
 vm_list.remove(".100.conf.swp")
@@ -96,7 +96,7 @@ for i in vm_list:
         """)
     cursor.execute(f"""
         INSERT
-            INTO clientSubnet
+            INTO t_clientSubnet
             VALUES       ('{SubnetID}','{vmid}' )
     """)
     con.commit()

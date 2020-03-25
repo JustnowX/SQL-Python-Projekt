@@ -1,15 +1,16 @@
 REM @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\sql\create_t.sql
-cl scr
-set NULL 'N/A'
 
+set NULL 'N/A'
+set linesize 200
+set echo on
 cl scr
 
 conn ora1/ora1
 
-DROP TABLE clientSubnet;
-DROP TABLE hostsubnet;
-DROP TABLE Subnet;
-DROP TABLE HDDs;
+DROP TABLE t_clientSubnet;
+DROP TABLE t_hostsubnet;
+DROP TABLE t_Subnet;
+DROP TABLE t_HDDs;
 DROP TABLE t_client;
 DROP TABLE t_host;
 
@@ -49,7 +50,7 @@ CREATE TABLE t_hostsubnet
 (
   SubnetID    VARCHAR2(20),
   Hostname    VARCHAR2(20),
-              CONSTRAINT    subnetID_fk   FOREIGN KEY (SubnetID) REFERENCES Subnet (SubnetID),
+              CONSTRAINT    subnetID_fk   FOREIGN KEY (SubnetID) REFERENCES t_Subnet (SubnetID),
               CONSTRAINT    VMID_fk       FOREIGN KEY (Hostname) REFERENCES t_host (Hostname),
               CONSTRAINT    PK_hostsubnet PRIMARY KEY (SubnetID, Hostname)
 );
@@ -58,15 +59,10 @@ CREATE TABLE t_clientSubnet
 (
   SubnetID    VARCHAR2(20),
   VMID        NUMBER,
-              CONSTRAINT    subnetID_fk_client     FOREIGN KEY (SubnetID) REFERENCES Subnet (SubnetID),
+              CONSTRAINT    subnetID_fk_client     FOREIGN KEY (SubnetID) REFERENCES t_Subnet (SubnetID),
               CONSTRAINT    VMID_fk_2              FOREIGN KEY (VMID)     REFERENCES t_client (VMID),
               CONSTRAINT    PK_clientsubnet        PRIMARY KEY (SubnetID, VMID)
 );
 
-CL SCR
-
 COMMIT;
-
-CL SCR
-
-@&pfad.\db\data\0.sql
+REM exit
