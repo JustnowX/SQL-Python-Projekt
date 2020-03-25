@@ -152,13 +152,8 @@ while run == 1:
                 print("Zurueck zum Hauptmenue? (y/n)")
                 choice = input(":> ")
                 if choice == y:
-                    database()
-                    print("Datenbank zurueckgesetzt.")
-                    print("Zurueck zum Hauptmenue? (y/n)")
-                    choice = input(":> ")
-                    if choice == y:
-                        break
-                    else:
+                    break
+                else:
                         exit()
 
                 else:
