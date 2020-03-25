@@ -66,3 +66,8 @@ CREATE TABLE t_clientSubnet
 
 COMMIT;
 REM exit
+
+
+CL SCR
+
+@&pfad.\db\data\0.sql
