@@ -16,7 +16,7 @@ DROP TABLE t_host;
 
 CREATE TABLE t_host
 (
-  hIP         VARCHAR2(20),
+  hIP         VARCHAR2(20)    CONSTRAINT hostip_thost      UNIQUE,
   Hostname    VARCHAR2(20)    CONSTRAINT PK_hHostname      PRIMARY KEY
 );
 
@@ -37,7 +37,8 @@ CREATE TABLE t_HDDs
 (
   HDD_ID        VARCHAR2(20),
   Hostname      VARCHAR2(20),
-                CONSTRAINT   FK_HDDs  FOREIGN KEY (Hostname) REFERENCES t_host (Hostname)
+                CONSTRAINT   FK_HDDs  FOREIGN KEY (Hostname) REFERENCES t_host (Hostname),
+                CONSTRAINT   PK_Hdds  PRIMARY KEY (HDD_ID, Hostname)
 );
 
 CREATE TABLE t_Subnet
