@@ -55,11 +55,17 @@ def database_update():
 
     # Writes data in DB
     cursor.execute(f"""
-            INSERT
-                INTO t_client (cid,     cHostname,      ip,      sysart,    hid)
-                VALUES        ('{vmid}', '{hostname}', '{ip}', '{ostype}', {chid})
+        INSERT
+            INTO t_client (VMID,     OS_Type,    cIP,     RAM, cores,  Hostname,    disk_space, Clientname)
+            VALUES        ('{vmid}', '{ostype}', '{ip}','{ram}','{cores}', '{Hostname}','{disk_space}',   '{clientname}')
         """)
-        con.commit()
+
+    cursor.execute(f"""
+        INSERT
+            INTO clientSubnet
+            VALUES      ('{SubnetID}','{vmid}' )
+    """)
+    con.commit()
 
 ## Resets databases
 def database_reset():
@@ -101,53 +107,53 @@ def database_reset():
 #######################################################################################
 
 
-while run == 1
-    while stop == 0
-    print("Willkommen im Hauptmenue, sie haben folgende Auswahlmöglichkeiten")
-    print(
-            """
-                1. Eintrag aendern
-                2. Datenbank aktualisieren
-                3. Datenbank zurücksetzen
+while run == 1:
+    while stop == 0:
+        print("Willkommen im Hauptmenue, sie haben folgende Auswahlmöglichkeiten")
+        print(
+                """
+                    1. Eintrag aendern
+                    2. Datenbank aktualisieren
+                    3. Datenbank zurücksetzen
 
-                """)
+                    """)
 
-    userinput = input(":> ")
-##
-    if userinput == 1:
-        os.system("sqlplus")
+        userinput = input(":> ")
+    ##
+        if userinput == 1:
+            os.system("sqlplus")
 
-    elif userinput == 2:
-        print("Datenbank aktualisieren? (y/n)")
-        choice = input(":> ")
-        if choice == y
-            database_update()
-            print("Datenbank aktualisiert")
-            print("Zurueck zum Hauptmenue? (y/n)")
+        elif userinput == 2:
+            print("Datenbank aktualisieren? (y/n)")
             choice = input(":> ")
-            if choice == y
-                break
-            else
+            if choice == y:
+                database_update()
+                print("Datenbank aktualisiert")
+                print("Zurueck zum Hauptmenue? (y/n)")
+                choice = input(":> ")
+                if choice == y:
+                    break
+                else:
+                    exit()
+
+            else:
                 exit()
 
-        else
-            exit()
-
-    elif userinput == 3:
-        print("Datenbank zuruecksetzen? (y/n)")
-        choice = input(":> ")
-        if choice == y
-            database()
-            print("Datenbank zurueckgesetzt.")
-            print("Zurueck zum Hauptmenue? (y/n)")
+        elif userinput == 3:
+            print("Datenbank zuruecksetzen? (y/n)")
             choice = input(":> ")
-            if choice == y
+            if choice == y:
+                database()
+                print("Datenbank zurueckgesetzt.")
+                print("Zurueck zum Hauptmenue? (y/n)")
+                choice = input(":> ")
+                if choice == y:
+                    break
+                else:
+                    exit()
+
+            else:
                 break
-            else
-                exit()
 
         else:
-            break
-
-    else:
-        print("Falsche Eingabe, versuchen sie es erneut")
+            print("Falsche Eingabe, versuchen sie es erneut")
