@@ -1,7 +1,7 @@
 REM @&pfad\db\insdata\submen2.sql
 
 REM insdata
-
+cl scr
 
 PROMPT Insert new Dataset
 PROMPT++++++++++++++++++++++++++++++++++++++

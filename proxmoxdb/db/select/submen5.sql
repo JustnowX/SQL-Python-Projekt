@@ -2,7 +2,7 @@ REM @&pfad\db\select\submen5.sql
 
 REM search
 
-
+cl scr
 PROMPT Select
 PROMPT++++++++++++++++++++++++++++++++++++++
 PROMPT

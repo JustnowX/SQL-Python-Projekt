@@ -1,4 +1,4 @@
-@&pfad\db\viewdata\4.sql
+REM @&pfad\db\viewdata\4.sql
 REM to submen4
 
 cl scr

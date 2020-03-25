@@ -1,7 +1,7 @@
 REM @&pfad\db\insdata\submen3.sql
 
 REM search
-
+cl scr
 
 PROMPT Search
 PROMPT++++++++++++++++++++++++++++++++++++++
