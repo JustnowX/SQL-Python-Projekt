@@ -42,8 +42,14 @@ cursor.execute(f"""
         INTO t_host
         VALUES (111, 'test.host.xxx')
 """)
+
+# Gets Hostname
+f = open("/etc/hostname", "r")
+hostname = f.readline()
+f.close
+
 # Gets List of VMs
-vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs")
+vm_list = os.listdir(r"/etc/pve/lxc/")
 vm_list.remove("inserfromconf_V0_3.py")
 for i in vm_list:
     config = open(i)
