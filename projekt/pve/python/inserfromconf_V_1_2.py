@@ -1,6 +1,7 @@
 import pysftp
 import os
 import pysftp
+import cx_Oracle
 
 db_connection_string = 'ora1/ora1'
 con = cx_Oracle.connect(db_connection_string)
@@ -10,17 +11,14 @@ stop = 0
 
 
 
+def get_configs():
+        ##
+        with pysftp.Connection('$', username='root', password='Hanns-G') as sftp:
+            sftp.get_d('/etc/pve/lxc', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
+            sftp.get('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
+
+
 def database_update():
-    # Gets List of VMs
-=======
-def get_configs:
-    ##
-    with pysftp.Connection('192.168.1.107', username='root', password='Hanns-G') as sftp:
-        sftp.get_d('/etc/pve/lxc', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
-        sftp.get('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
-
-
-def database_update:
     # Gets List of VMs
     ##
     vm_list = os.listdir(r"/etc/pve/lxc/")
@@ -147,30 +145,24 @@ while run == 1:
 
         elif userinput == 3:
             print("Datenbank zuruecksetzen? (y/n)")
-=======
-        else
-            exit()
-
-    elif userinput == 3:
-        print("Datenbank zuruecksetzen? (y/n)")
-        choice = input(":> ")
-        if choice == y
-            database_reset()
-            print("Datenbank zurueckgesetzt.")
-            print("Zurueck zum Hauptmenue? (y/n)")
             choice = input(":> ")
             if choice == y:
-                database()
+                database_reset()
                 print("Datenbank zurueckgesetzt.")
                 print("Zurueck zum Hauptmenue? (y/n)")
                 choice = input(":> ")
                 if choice == y:
-                    break
-                else:
-                    exit()
+                    database()
+                    print("Datenbank zurueckgesetzt.")
+                    print("Zurueck zum Hauptmenue? (y/n)")
+                    choice = input(":> ")
+                    if choice == y:
+                        break
+                    else:
+                        exit()
 
-            else:
-                break
+                else:
+                    break
 
         else:
             print("Falsche Eingabe, versuchen sie es erneut")
