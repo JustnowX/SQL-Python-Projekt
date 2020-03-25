@@ -92,7 +92,7 @@ for i in vm_list:
     cursor.execute(f"""
         INSERT
             INTO t_client (VMID,     OS_Type,     cIP,    RAM,    cores,   Hostname, disk_space,   Clientname)
-            VALUES        ('{vmid}', '{ostype}', '{ip}','{ram}','{cores}', 'pve',    '{disk_space}','{clientname}')
+            VALUES        ({vmid}, '{ostype}', '{ip}',{ram},{cores}, 'pve',    '{disk_space}','{clientname}')
         """)
     cursor.execute(f"""
         INSERT
@@ -100,3 +100,4 @@ for i in vm_list:
             VALUES       ('{SubnetID}','{vmid}' )
     """)
     con.commit()
+os.system("")
