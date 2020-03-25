@@ -10,7 +10,7 @@ stop = 0
 
 
 
-def database_update:
+def database_update():
     # Gets List of VMs
     ##
     with pysftp.Connection('192.168.1.107', username='root', password='Hanns-G') as sftp:
@@ -62,7 +62,7 @@ def database_update:
         con.commit()
 
 ## Resets databases
-def database_reset
+def database_reset():
     cursor.execute(f"""
         DROP TABLE t_client
         """)
@@ -113,7 +113,7 @@ while run == 1
                 """)
 
     userinput = input(":> ")
-
+##
     if userinput == 1:
         os.system("sqlplus")
 
