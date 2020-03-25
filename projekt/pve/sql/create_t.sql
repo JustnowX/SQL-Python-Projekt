@@ -33,19 +33,19 @@ CREATE TABLE t_client
                 CONSTRAINT Hostname_FK_tclient FOREIGN KEY (Hostname) REFERENCES t_host (Hostname)
 );
 
-CREATE TABLE HDDs
+CREATE TABLE t_HDDs
 (
   HDD_ID        VARCHAR2(20),
   Hostname      VARCHAR2(20),
                 CONSTRAINT   FK_HDDs  FOREIGN KEY (Hostname) REFERENCES t_host (Hostname)
 );
 
-CREATE TABLE Subnet
+CREATE TABLE t_Subnet
 (
   SubnetID      VARCHAR2(20)  CONSTRAINT pk_subnet  PRIMARY KEY
 );
 
-CREATE TABLE hostsubnet
+CREATE TABLE t_hostsubnet
 (
   SubnetID    VARCHAR2(20),
   Hostname    VARCHAR2(20),
@@ -54,7 +54,7 @@ CREATE TABLE hostsubnet
               CONSTRAINT    PK_hostsubnet PRIMARY KEY (SubnetID, Hostname)
 );
 
-CREATE TABLE clientSubnet
+CREATE TABLE t_clientSubnet
 (
   SubnetID    VARCHAR2(20),
   VMID        NUMBER,
