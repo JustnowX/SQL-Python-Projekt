@@ -10,6 +10,7 @@ PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
+<<<<<<< HEAD
 
 
 
@@ -24,6 +25,8 @@ SELECT clientname
 PROMPT
 PROMPT
 
+=======
+>>>>>>> e028fc4e770221d63e43a59c612a8d6bff9beaf8
 PROMPT (0) Back?
 ACCEPT eingabe PROMPT "Ihre Auswahl: "
 
