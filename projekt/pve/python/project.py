@@ -8,15 +8,16 @@ con = cx_Oracle.connect(db_connection_string)
 run = 1
 stop = 0
 
-
-
-def database_update:
-    # Gets List of VMs
+def get_configs:
     ##
     with pysftp.Connection('192.168.1.107', username='root', password='Hanns-G') as sftp:
         sftp.get_d('/etc/pve/lxc', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
         sftp.get('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
 
+
+def database_update:
+    # Gets List of VMs
+    ##
     vm_list = os.listdir(r"/etc/pve/lxc/")
     vm_list.remove("inserfromconf_V0_3.py")
     for i in vm_list:
@@ -137,7 +138,7 @@ while run == 1
         print("Datenbank zuruecksetzen? (y/n)")
         choice = input(":> ")
         if choice == y
-            database()
+            database_reset()
             print("Datenbank zurueckgesetzt.")
             print("Zurueck zum Hauptmenue? (y/n)")
             choice = input(":> ")
