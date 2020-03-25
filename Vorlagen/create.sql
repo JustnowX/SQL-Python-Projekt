@@ -65,3 +65,4 @@ CREATE TABLE t_clientSubnet
 );
 
 COMMIT;
+exit
