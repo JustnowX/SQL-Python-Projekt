@@ -7,6 +7,12 @@ PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
+PROMPT
+SELECT *
+  FROM t_host
+  ORDER BY Hostname;
+
+
 PROMPT (0) Back?
 ACCEPT eingabe PROMPT "Ihre Auswahl: "
 

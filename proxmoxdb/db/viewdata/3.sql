@@ -9,6 +9,14 @@ PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
+PROMPT
+
+
+SELECT *
+  FROM t_HDDs
+  ORDER BY HDD_ID;
+POMPPT
+PROMPT
 PROMPT (0) Back?
 ACCEPT eingabe PROMPT "Ihre Auswahl: "
 
