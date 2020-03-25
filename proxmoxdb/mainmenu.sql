@@ -5,6 +5,7 @@ REM
 
 CL SCR
 
+cl scr
 PROMPT ProxmoxDB
 PROMPT
 PROMPT ProxmoxDB Menue
@@ -21,7 +22,11 @@ PROMPT (4) Delete Data
 PROMPT
 PROMPT (5) Select
 PROMPT
+<<<<<<< HEAD
 PROMPT (6) Reset Data
+=======
+PROMPT (6) Reset Tables
+>>>>>>> 1ed5a67a31d0a10848a3a0c9226e4eeaaef4ce58
 PROMPT
 PROMPT (0) Close
 PROMPT

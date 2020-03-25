@@ -3,6 +3,6 @@ cl scr
 
 conn ora1/ora1
 
-SELECT hostname
+SELECT clientname
   FROM t_client
-  ORDER BY hostname;
+  ORDER BY clientname;
