@@ -100,6 +100,3 @@ for i in vm_list:
             VALUES       ('{SubnetID}','{vmid}' )
     """)
     con.commit()
-
-
-config.close()
