@@ -1,5 +1,5 @@
-REM Skript: mainmenu.sql
-REM Inhalt:
+REM mainmenu.sql
+REM @&pfad.\proxmoxdb\mainmenu.sql
 REM Hauptmenue
 REM
 

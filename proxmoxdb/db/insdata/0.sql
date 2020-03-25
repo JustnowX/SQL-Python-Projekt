@@ -1,5 +1,5 @@
-REM 0.sql
-
+REM @&pfad\db\insdata\0.sql
+REM Zurück zum hauptmenü
 cl scr
 
 

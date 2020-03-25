@@ -1,4 +1,4 @@
-REM @C:\Users\thema\Desktop\proxmoxdb\db\select\submen5.sql
+REM @&pfad\db\select\submen5.sql
 
 REM search
 

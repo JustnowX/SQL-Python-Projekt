@@ -1,4 +1,4 @@
-REM @C:\Users\thema\Desktop\proxmoxdb\db\viewdata\1.sql
+REM @&pfad\db\viewdata\1.sql
 
 cl scr
 

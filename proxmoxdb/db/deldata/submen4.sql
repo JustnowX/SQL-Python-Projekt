@@ -1,6 +1,6 @@
-REM @C:\Users\thema\Desktop\proxmoxdb\db\insdata\submen4.sql
+REM @&pfad\db\insdata\submen4.sql
 
-REM search
+cl scr
 
 
 PROMPT Delete Data

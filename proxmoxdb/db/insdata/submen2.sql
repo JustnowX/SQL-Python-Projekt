@@ -1,4 +1,4 @@
-REM @C:\Users\thema\Desktop\proxmoxdb\db\insdata\submen2.sql
+REM @&pfad\db\insdata\submen2.sql
 
 REM insdata
 

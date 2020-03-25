@@ -1,5 +1,5 @@
 cl scr
-
+REM @&pfad\db\viewdata\2.sql
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT Hosts
