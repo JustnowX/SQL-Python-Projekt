@@ -8,14 +8,12 @@ con = cx_Oracle.connect(db_connection_string)
 run = 1
 stop = 0
 
-<<<<<<< HEAD:projekt/pve/python/inserfromconf_V_1_1.py
 
 
 def database_update():
     # Gets List of VMs
 =======
 def get_configs:
->>>>>>> b3a989564a3fa5d6a708a85fee6fabd783b70de0:projekt/pve/python/project.py
     ##
     with pysftp.Connection('192.168.1.107', username='root', password='Hanns-G') as sftp:
         sftp.get_d('/etc/pve/lxc', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\confpull')
@@ -147,7 +145,6 @@ while run == 1:
             else:
                 exit()
 
-<<<<<<< HEAD:projekt/pve/python/inserfromconf_V_1_1.py
         elif userinput == 3:
             print("Datenbank zuruecksetzen? (y/n)")
 =======
@@ -161,7 +158,6 @@ while run == 1:
             database_reset()
             print("Datenbank zurueckgesetzt.")
             print("Zurueck zum Hauptmenue? (y/n)")
->>>>>>> b3a989564a3fa5d6a708a85fee6fabd783b70de0:projekt/pve/python/project.py
             choice = input(":> ")
             if choice == y:
                 database()
