@@ -5,8 +5,8 @@ import os
 import pysftp
 # Gets directory and conf files from host via sftp-----------------------------------
 with pysftp.Connection('192.168.1.107', username='root', password='Hanns-G') as sftp:
-    sftp.get_d('/etc/pve/lxc',  r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs')
-    sftp.get  ('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\hostconf')
+    sftp.get_d('/etc/pve/lxc',  r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\bin')
+    sftp.get  ('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\bin\hostconf')
 
 #cx_Oracle Connect funktion----------------------------------------------------------
 db_connection_string = 'ora1/ora1'
@@ -75,6 +75,7 @@ for i in vm_list:
     line8 = config.readline()
     line9 = config.readline()
 
+    config.close()
     # passenden ausszug [slice(x,x)] übergeben-----------
     cores = line2[slice(7, 20)]
     clientname  = line3[slice(10, 40)]
@@ -99,5 +100,3 @@ for i in vm_list:
             VALUES       ('{SubnetID}','{vmid}' )
     """)
     con.commit()
-
-config.close()
