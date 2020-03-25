@@ -10,6 +10,16 @@ PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
+PROMPT
+PROMPT
+
+
+SELECT clientname
+  FROM t_client
+  ORDER BY clientname;
+
+
+
 PROMPT (0) Back?
 ACCEPT eingabe PROMPT "Ihre Auswahl: "
 
