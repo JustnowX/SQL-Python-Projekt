@@ -1,0 +1,4 @@
+SELECT COUNT(OS_Type), Hostname
+FROM t_client
+GROUP BY Hostname
+HAVING COUNT(OS_Type) > 2;
