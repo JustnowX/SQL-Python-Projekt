@@ -10,8 +10,7 @@ PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
-PROMPT
-PROMPT
+
 
 
 SELECT clientname
@@ -19,6 +18,11 @@ SELECT clientname
   ORDER BY clientname;
 
 
+
+
+
+PROMPT
+PROMPT
 
 PROMPT (0) Back?
 ACCEPT eingabe PROMPT "Ihre Auswahl: "
