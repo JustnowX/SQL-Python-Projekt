@@ -4,7 +4,7 @@ set NULL 'N/A'
 set linesize 200
 set echo on
 cl scr
-
+rem
 conn ora1/ora1
 
 DROP TABLE t_clientSubnet;
