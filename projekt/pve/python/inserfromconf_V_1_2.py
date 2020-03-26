@@ -156,6 +156,29 @@ while run == 1:
                 else:
                         exit()
 
+            else:
+                break
+
+        elif userinput == 4:
+            print("Geforderte Reihenfolge:")
+            print("VMID, OS Typ, IP, RAM, Cores, Hostname, Disk Space, Clientname")
+            input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
+            insert_list = input_string.split()
+
+
+            if listitems.count() != 8:
+                print("Falsche eingabe")
+
+            else:
+                print("Sollen folgende Eingaben gespeichert werden?")
+                print("VMID: insert_list[0], OS Typ: insert_list[1], IP: insert_list[2], RAM: insert_list[3], Cores: insert_list[4], Hostname: insert_list[5], Disk Space: insert_list[6], CLientname: insert_list[7])")
+                choice = input(r"Sollen die Daten geschrieben werden (y/n)")
+                if choice == y:
+                    cursor.execute(f"""
+                        INSERT
+                            INTO t_client (VMID,     OS_Type,    cIP,     RAM, cores,  Hostname,    disk_space, Clientname)
+                            VALUES        ('{insert_list[0]}', '{insert_list[1]}', '{insert_list[2]}','{insert_list[3]}','{insert_list[4]}', '{insert_list[5]}','{insert_list[6]}',   '{insert_list[7]}')
+                        """)
                 else:
                     break
 
