@@ -1,4 +1,4 @@
-REM @&pfad\db\viewdata\3.sql
+REM @&pfad\db\mainmenu\3.sql
 REM to submen3
 
 cl scr
