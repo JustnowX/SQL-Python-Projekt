@@ -4,7 +4,7 @@ cl scr
 
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
-PROMPT Debian clients in Subnets
+PROMPT Subnet clients with debian 
 PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT

@@ -17,13 +17,11 @@ PROMPT (1) View Database
 PROMPT
 PROMPT (2) Insert new Data
 PROMPT
-PROMPT (3) Search
+PROMPT (3) Search (alpha)
 PROMPT
 PROMPT (4) Delete Data
 PROMPT
 PROMPT (5) Select
-PROMPT
-PROMPT (6) Reset Tables
 PROMPT
 PROMPT (0) Close
 PROMPT
