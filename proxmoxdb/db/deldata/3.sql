@@ -1,4 +1,4 @@
-REM @C:\Users\thema\Desktop\proxmoxdb\db\insdata\3.sql
+REM @&pfad\db\deldata\3.sql
 
 cl scr
 
