@@ -7,11 +7,13 @@ PROMPT Delete Data
 PROMPT++++++++++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
-PROMPT (1) Delete Table
+PROMPT (1) Delete Client
 PROMPT
-PROMPT (2) Delete Dataset
+PROMPT (2) Delete Host
 PROMPT
+PROMPT (3) Delete Subnet
 PROMPT
+PROMPT (4) Delete Hdd
 PROMPT
 PROMPT (0) Back
 PROMPT

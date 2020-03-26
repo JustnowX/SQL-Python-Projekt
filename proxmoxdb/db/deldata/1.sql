@@ -1,11 +1,11 @@
 
-REM @C:\Users\thema\Desktop\proxmoxdb\db\insdata\2.sql
+REM @C:\Users\thema\Desktop\proxmoxdb\db\insdata\1.sql
 
 cl scr
 
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
-PROMPT Delete Table
+PROMPT Delete Client
 PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
