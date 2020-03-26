@@ -5,7 +5,7 @@ import os
 import pysftp
 
 
-avg = []
+#avg = []
 run = 1
 stop = 0
 #cx_Oracle Connect funktion----------------------------------------------------------
@@ -94,7 +94,7 @@ def sliceandinsert():
         SubnetID  = f"{line5[slice(43, 53)]}0/24"
         #testprint--------------------------------------------
         #print(f"##{vmid}##")
-        print(f"##{clientname}##")
+        #print(f"##{clientname}##")
         # print(SubnetID)
         # print(f"##{ostype}##")
         #übergeben der sauberen daten in die datenbank--------
@@ -130,7 +130,7 @@ while run == 1:
 ##  6. Daten ausgeben                                         ##
 ##  7. SQL*Plus starten                                       ##
 ################################################################
-             Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
+             Gebe [1]  ,  [2]  ...  [7] ein!
                     """)
 
         userinput = input(":> ")
@@ -203,42 +203,41 @@ while run == 1:
                 cursor.execute(f"""
                     INSERT
                     INTO t_host (hIP,  Hostname)
-                    VALUES       ('{hIP}','{Hostname}' )
+                    VALUES       ('{insert_list[1]}','{insert_list[0]}' )
                     """)
                 con.commit()
             # Drop Table und Create
             con.commit()
 
         elif userinput == '6':
+            os.system("cls")
             print("Willkommen im SuperDopeTool, sie haben folgende Auswahlmöglichkeiten")
             print("""
-            ################################################################
-            ##  1. Alle Clients                                           ##
-            ##  2. Client Durchschnittswerte                              ##
-            ##  3. Anzahl der Clients                                     ##
-            ##  4. Alle Hosts                                             ##
-            ##  5. Host Durchschnittswerte                                ##
-            ################################################################
-                         Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
+################################################################
+##  1. Alle Clients                                           ##
+##  2. Alle Hosts                                             ##
+################################################################
+                Gebe [1] oder [2]  ein!
                                 """)
             choice = input(":> ")
             if choice == '1':
-                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\select_clients.sql")
+                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\db\\sqlselect\\select_clients.sql")
 
-            elif choice == '2':
+            elif choice == '4':
                 cursor.execute("SELECT AVG(cores) FROM t_client")
                 avg.append(cursor.fetchall())
                 cursor.execute("SELECT AVG(RAM) FROM t_client")
                 avg.append(cursor.fetchall())
-                cursor.execute("SELECT AVG(disk_space) FROM t_client")
-                avg.append(cursor.fetchall())
-                print("AVG Cores: {avg[0]} \n AVG RAM: {avg[1]} \n AVG HDD: {avg[2]}")
+                print("AVG Cores: {avg[0]} \n AVG RAM: {avg[1]}")
 
             elif choice == '3':
                 cursor.execute("SELECT COUNT(VMID) FROM t_client")
+                cockx = cursor.fetchall()
+                print(cockx)
+                f"".join(cockx)
 
-            elif choice == '4':
-                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\select_hosts.sql")
+            elif choice == '2':
+                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\db\\sqlselect\\select_hosts.sql")
 
             elif choice == '5':
                 print("Function not implemented yet.")
