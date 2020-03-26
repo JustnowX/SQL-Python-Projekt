@@ -9,6 +9,28 @@ PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
+
+
+
+
+SELECT Subnet
+  FROM t_subnet
+  ORDER BY t_subnet;
+
+
+
+ACCEPT del PROMPT "Welches Subnet loeschen?(0 = keinen)  "
+DELETE FROM t_subnet
+  WHERE t_subnet = '&del';
+cl scr
+
+COMMIT;
+
+
+
+
+PROMPT
+PROMPT
 PROMPT (0) Back?
 PROMPT
 ACCEPT eingabe PROMPT "Ihre Auswahl: "

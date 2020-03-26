@@ -18,20 +18,20 @@ INSERT
   VALUES ('192.168.1.111', 'hostxxx');
 
 INSERT
-  INTO t_client (VMID, OS_Type,         cIP, cores,       RAM,  Hostname, disk_space, Clientname)
-  VALUES        ('101', 'debian', '192.168.1.101', '2', '500', 'hostxxx', '500', 'client101');
+  INTO t_client (VMID, OS_Type,         cIP,        cores,       RAM,  Hostname, disk_space, Clientname)
+  VALUES        (101, 'debian', '192.168.1.101',        2,       500, 'hostxxx', '500', 'client101');
 
 INSERT
-  INTO t_client (VMID, OS_Type,         cIP,  cores,     RAM,  Hostname, disk_space, Clientname)
-  VALUES        ('102', 'anusoo', '192.168.1.102','3', '500', 'pve', '500', 'client102');
+  INTO t_client (VMID, OS_Type,         cIP,      cores,     RAM,  Hostname, disk_space, Clientname)
+  VALUES        (102, 'anusoo', '192.168.1.102',    3,        500, 'pve', '500', 'client102');
 
 INSERT
   INTO t_client (VMID, OS_Type,         cIP,   cores,    RAM,  Hostname, disk_space, Clientname)
-  VALUES        ('201', 'ubuntu', '192.168.1.201','3', '500', 'pve', '30', 'client201');
+  VALUES        (201, 'ubuntu', '192.168.1.201',3, 500, 'pve', '30', 'client201');
 
 INSERT
-  INTO t_client (VMID, OS_Type,         cIP,  cores,     RAM,  Hostname, disk_space, Clientname)
-  VALUES        ('333', 'ubuntu', '192.168.1.333','2', '500', 'hostxxx', '50', 'client333');
+  INTO t_client (VMID, OS_Type,         cIP,      cores,     RAM,  Hostname, disk_space, Clientname)
+  VALUES        (333, 'ubuntu', '192.168.1.333',    2,        500, 'hostxxx', '50', 'client333');
 
 INSERT
   INTO HDDs
