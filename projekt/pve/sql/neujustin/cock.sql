@@ -24,6 +24,7 @@ SELECT Clientname, SubnetID
   WHERE OS_type = 'debian';
 
 REM Welches Subnet hat die Meinsten Clients
+
 SELECT  SubnetID, count(*) AS anzahl
   FROM  t_client JOIN t_clientSubnet USING (VMID)
   GROUP BY SubnetID

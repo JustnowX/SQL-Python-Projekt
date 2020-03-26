@@ -221,6 +221,7 @@ while run == 1:
             ################################################################
                          Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
                                 """)
+            choice = input(":> ")
             if choice == '1':
                 os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\select_clients.sql")
 
