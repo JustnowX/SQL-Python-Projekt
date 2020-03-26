@@ -57,12 +57,12 @@ def ini_insert():
 # Gets directory and conf files from host via sftp-----------------------------------
 def get_conf():
     with pysftp.Connection('192.168.1.107', username='root', password='Hanns-G') as sftp:
-        sftp.get_d('/etc/pve/lxc',  r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\Beta')
-        sftp.get  ('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\Beta\hostconf')
+        sftp.get_d('/etc/pve/lxc',  r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\Beta')
+        sftp.get  ('/etc/hostname', r'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\Beta\hostconf')
 #------------------------------------------------------------------------------------
 # Gets List of VMs-------------------------------------------------------------------
 def sliceandinsert():
-    vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\Beta")
+    vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\BetaBeta")
     vm_list.remove("inserfromconf_V1_840.py")
     vm_list.remove("hostconf")
     vm_list.remove(".100.conf.swp")
@@ -111,7 +111,7 @@ def sliceandinsert():
         con.commit()
 # Drop Table und Create-----------------------------------------------------------------------
 def database_reset():
-    os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\create.sql")
+    os.system(r"sqlplus /nolog @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\SQL_Ordnerstuktur\create.sql")
 
 #----------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------
@@ -136,7 +136,7 @@ while run == 1:
         userinput = input(":> ")
 
         if userinput == "1":
-            os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\mainmenu.sql")
+            os.system(r"sqlplus /nolog @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\SQL_Ordnerstuktur\mainmenu.sql")
 
         elif userinput == "2":
             print("Config-Dateien auslesen und in Datenbank übertagen? (y/n)")
@@ -221,7 +221,7 @@ while run == 1:
                                 """)
             choice = input(":> ")
             if choice == '1':
-                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\db\\sqlselect\\select_clients.sql")
+                os.system(r"sqlplus /nolog @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\SQL_Ordnerstuktur\db\sqlselect\select_clients.sql")
 
             elif choice == '4':
                 cursor.execute("SELECT AVG(cores) FROM t_client")
@@ -237,7 +237,7 @@ while run == 1:
                 f"".join(cockx)
 
             elif choice == '2':
-                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\db\\sqlselect\\select_hosts.sql")
+                os.system(r"sqlplus /nolog @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\SQL_Ordnerstuktur\db\sqlselect\select_hosts.sql")
 
             elif choice == '5':
                 print("Function not implemented yet.")

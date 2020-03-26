@@ -1,5 +1,0 @@
-bla bla
-blub blub
-\tIch bin Importierter text
-bla bla
-bla 800 mili\nonen
