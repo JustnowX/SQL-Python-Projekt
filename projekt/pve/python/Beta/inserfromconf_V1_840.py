@@ -63,7 +63,6 @@ def get_conf():
 # Gets List of VMs-------------------------------------------------------------------
 def sliceandinsert():
     vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\Beta")
-    vm_list.remove("inserfromconf_V1_420.py")
     vm_list.remove("inserfromconf_V1_840.py")
     vm_list.remove("hostconf")
     vm_list.remove(".100.conf.swp")
@@ -86,17 +85,18 @@ def sliceandinsert():
         config.close()
         # passenden ausszug [slice(x,x)] übergeben-----------
         cores = line2[slice(7, 20)]
-        clientname  = line3[slice(10, 40)]
+        clientname  = (line3[slice(10, 40)])[slice(-1)]
         ram  = line4[slice(8, 20)]
         ip = line5[slice(83, 96)]
-        ostype  = line6[slice(8, 40)]
+        ostype  = (line6[slice(8, 40)])[slice(-1)]
         vmid = line7[slice(21, 24)]
         disk_space = line7[slice(37, 45)]
         SubnetID  = f"{line5[slice(43, 53)]}0/24"
         #testprint--------------------------------------------
-        print(vmid)
-        print(SubnetID)
-        print(f"##{ostype}##")
+        #print(f"##{vmid}##")
+        print(f"##{clientname}##")
+        # print(SubnetID)
+        # print(f"##{ostype}##")
         #übergeben der sauberen daten in die datenbank--------
         cursor.execute(f"""
             INSERT
@@ -118,6 +118,7 @@ def database_reset():
 
 while run == 1:
     while stop == 0:
+        os.system("cls")
         print("Willkommen im SuperDopeTool, sie haben folgende Auswahlmöglichkeiten")
         print("""
 ################################################################
@@ -135,7 +136,7 @@ while run == 1:
         userinput = input(":> ")
 
         if userinput == "1":
-            os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\start.sql")
+            os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\mainmenu.sql")
 
         elif userinput == "2":
             print("Config-Dateien auslesen und in Datenbank übertagen? (y/n)")
@@ -204,7 +205,7 @@ while run == 1:
                     INTO t_host (hIP,  Hostname)
                     VALUES       ('{hIP}','{Hostname}' )
                     """)
-                    con.commit()
+                con.commit()
             # Drop Table und Create
             con.commit()
 
