@@ -1,4 +1,4 @@
-SELECT COUNT(OS_Type), Hostname
+SELECT COUNT(cores), Hostname
 FROM t_client
 GROUP BY Hostname
-HAVING COUNT(OS_Type) > 2;
+HAVING COUNT(cores) > 2;
