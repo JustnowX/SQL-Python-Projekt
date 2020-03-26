@@ -2,8 +2,9 @@ REM mainmenu.sql
 REM @&pfad.\proxmoxdb\mainmenu.sql
 REM Hauptmenue
 REM
+conn ora1/ora1
+define pfad = 'C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\proxmoxdb'
 
-CL SCR
 
 cl scr
 PROMPT ProxmoxDB

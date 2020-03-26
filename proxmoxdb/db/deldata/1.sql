@@ -22,11 +22,12 @@ SELECT clientname, VMID
 
 ACCEPT del PROMPT "Welchen Client loeschen:(0 = keinen)  "
 ACCEPT id PROMPT  "VMID des Clients:  "
+DELETE FROM t_clientSubnet
+  WHERE VMID = '&id';
+
 DELETE FROM t_client
   WHERE clientname = '&del';
 
-DELETE FROM t_clientSubnet
-  WHERE VMID = id
 
 COMMIT;
 
