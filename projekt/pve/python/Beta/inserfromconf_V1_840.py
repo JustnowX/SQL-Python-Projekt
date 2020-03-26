@@ -124,6 +124,7 @@ while run == 1:
 ##  3. Datenbank zurücksetzen  (Drop Table & Create new)      ##
 ##  4. Client Manuel Hinzufügen                               ##
 ##  5. Host Manuel Hinzufügen                                 ##
+##  6. Client Daten ausgeben                                  ##
 ################################################################
              Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
                     """)
@@ -183,5 +184,28 @@ while run == 1:
                 con.commit()
             else:
                 break
+
+        elif userinput == '5':
+            print("Geforderte Reihenfolge:")
+            print("Host ID, Host IP")
+            input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
+            insert_list = input_string.split()
+
+
+            print("Sollen folgende Eingaben gespeichert werden?")
+            print(f"Host ID: {insert_list[0]}, IP: {insert_list[1]}")
+            choice = input("Sollen die Daten geschrieben werden (y/n)")
+            if choice == 'y':
+                cursor.execute(f"""
+                    INSERT
+                    INTO t_host (hIP,  Hostname)
+                    VALUES       ('{hIP}','{Hostname}' )
+                    """)
+                    con.commit()
+            # Drop Table und Create
+            con.commit()
+        elif userinput == '6':
+                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\select_clients.sql")
+
         else:
             print("Falsche Eingabe, versuchen sie es erneut")
