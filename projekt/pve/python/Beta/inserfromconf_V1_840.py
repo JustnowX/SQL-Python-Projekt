@@ -65,8 +65,8 @@ def sliceandinsert():
     vm_list.remove("inserfromconf_V1_840.py")
     vm_list.remove("hostconf")
     vm_list.remove(".100.conf.swp")
-#------------------------------------------------------------------------------------
-#readline, slice und INSERT für jede config datei------------------------------------
+    #----------------------------------------------------------------------------
+    #readline, slice und INSERT für jede config datei----------------------------
     for i in vm_list:
         config = open(i)
 
@@ -94,6 +94,7 @@ def sliceandinsert():
         #testprint--------------------------------------------
         print(vmid)
         print(SubnetID)
+        print(f"##{ostype}##")
         #übergeben der sauberen daten in die datenbank--------
         cursor.execute(f"""
             INSERT
@@ -106,6 +107,7 @@ def sliceandinsert():
                 VALUES       ('{SubnetID}','{vmid}' )
                 """)
         con.commit()
+# Drop Table und Create-----------------------------------------------------------------------
 def database_reset():
     os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\create.sql")
 
@@ -114,14 +116,16 @@ def database_reset():
 
 while run == 1:
     while stop == 0:
-        print("Willkommen im SuperDuperTool, sie haben folgende Auswahlmöglichkeiten")
+        print("Willkommen im SuperDopeTool, sie haben folgende Auswahlmöglichkeiten")
         print("""
 ################################################################
 ##  1. SQL*Plus Menue                                         ##
 ##  2. Datenbank aktualisieren (Configs auslesen und Insert)  ##
 ##  3. Datenbank zurücksetzen  (Drop Table & Create new)      ##
+##  4. Client Manuel Hinzufügen                               ##
+##  5. Host Manuel Hinzufügen                                 ##
 ################################################################
-              Gebe [1]  ,  [2] oder [3] ein!
+             Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
                     """)
 
         userinput = input(":> ")
@@ -160,5 +164,24 @@ while run == 1:
                         exit()
             else:
                     break
+        elif userinput == '4':
+            print("Geforderte Reihenfolge:")
+            print("VMID, OS Typ, IP, RAM, Cores, Hostname, Disk Space, Clientname")
+            input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
+            insert_list = input_string.split()
+
+
+            print("Sollen folgende Eingaben gespeichert werden?")
+            print(f"VMID: {insert_list[0]}, OS Typ: {insert_list[1]}, IP: {insert_list[2]}, RAM: {insert_list[3]}, Cores: {insert_list[4]}, Hostname: {insert_list[5]}, Disk Space: {insert_list[6]}, CLientname: {insert_list[7]}")
+            choice = input("Sollen die Daten geschrieben werden (y/n)")
+            if choice == 'y':
+                cursor.execute(f"""
+                    INSERT
+                        INTO t_client (VMID,     OS_Type,    cIP,     RAM, cores,  Hostname,    disk_space, Clientname)
+                        VALUES        ({insert_list[0]}, '{insert_list[1]}', '{insert_list[2]}',{insert_list[3]},{insert_list[4]}, '{insert_list[5]}','{insert_list[6]}',   '{insert_list[7]}')
+                    """)
+                con.commit()
+            else:
+                break
         else:
             print("Falsche Eingabe, versuchen sie es erneut")
