@@ -6,7 +6,6 @@ PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT Delete Hdd
 PROMPT
-PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT

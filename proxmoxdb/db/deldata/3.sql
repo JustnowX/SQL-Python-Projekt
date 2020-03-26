@@ -6,7 +6,6 @@ PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT Delete Subnet
 PROMPT
-PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
 PROMPT
