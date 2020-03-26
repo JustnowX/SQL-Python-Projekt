@@ -9,7 +9,7 @@ PROMPT
 PROMPT (1) Clients with same OS_type
 PROMPT
 PROMPT (2) Systems with more than 3 cores
-PROMPT     and 2000mb RAM
+PROMPT      and 2000mb RAM
 PROMPT
 PROMPT (3) Debian clients in Subnets
 PROMPT

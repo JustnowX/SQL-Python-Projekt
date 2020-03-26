@@ -25,4 +25,4 @@ PROMPT (0) Back?
 ACCEPT eingabe PROMPT "Ihre Auswahl: "
 
 cl scr
-@&pfad.\db\select\submen2.sql
+@&pfad.\db\select\submen5.sql
