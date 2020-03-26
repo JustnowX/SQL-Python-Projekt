@@ -1,4 +1,4 @@
-REM @&pfad\db\insdata\submen4.sql
+REM @&pfad\db\deldata\submen4.sql
 
 cl scr
 

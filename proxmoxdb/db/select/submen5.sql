@@ -6,15 +6,14 @@ cl scr
 PROMPT Select
 PROMPT++++++++++++++++++++++++++++++++++++++
 PROMPT
+PROMPT (1) Clients with same OS_type
 PROMPT
+PROMPT (2) Systems with more than 3 cores
+PROMPT     and 2000mb RAM
 PROMPT
+PROMPT (3) Debian clients in Subnets
 PROMPT
-PROMPT
-PROMPT
-PROMPT
-PROMPT
-PROMPT
-PROMPT
+PROMPT (4) Biggest Subnet
 PROMPT
 PROMPT
 PROMPT (0) Back
