@@ -4,7 +4,7 @@ set linesize 300
 conn ora1/ora1
 
 SELECT *
-FROM t_hosts;
+FROM t_host
 ORDER BY Hostname;
 pause
 exit

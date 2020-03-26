@@ -94,7 +94,7 @@ def sliceandinsert():
         SubnetID  = f"{line5[slice(43, 53)]}0/24"
         #testprint--------------------------------------------
         #print(f"##{vmid}##")
-        print(f"##{clientname}##")
+        #print(f"##{clientname}##")
         # print(SubnetID)
         # print(f"##{ostype}##")
         #übergeben der sauberen daten in die datenbank--------
@@ -203,7 +203,7 @@ while run == 1:
                 cursor.execute(f"""
                     INSERT
                     INTO t_host (hIP,  Hostname)
-                    VALUES       ('{hIP}','{Hostname}' )
+                    VALUES       ('{insert_list[1]}','{insert_list[0]}' )
                     """)
                 con.commit()
             # Drop Table und Create
