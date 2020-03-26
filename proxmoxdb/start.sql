@@ -4,15 +4,15 @@ REM Aufrufe des Hauptmenues: mainmenu.sql
 
 SET ECHO OFF
 CL SCR
-
+conn ora1/ora1
 
 REM Anmelden
 
-ACCEPT benutzername PROMPT "Benutzername: " DEFAULT ora1
+REM ACCEPT benutzername PROMPT "Benutzername: " DEFAULT ora1
 
-ACCEPT passwort PROMPT "Passwort: " DEFAULT ora1 HIDE
+REM ACCEPT passwort PROMPT "Passwort: " DEFAULT ora1 HIDE
 
-CONNECT &benutzername/&passwort
+REM CONNECT &benutzername/&passwort
 
 REM Eingabe des Projektpfades
 
