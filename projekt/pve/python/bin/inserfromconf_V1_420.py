@@ -100,4 +100,4 @@ for i in vm_list:
             VALUES       ('{SubnetID}','{vmid}' )
     """)
     con.commit()
-os.system("")
+os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\proxmoxdb\\start.sql")
