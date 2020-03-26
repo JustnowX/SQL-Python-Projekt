@@ -4,5 +4,5 @@ cl scr
 conn ora1/ora1
 
 SELECT *
-FROM t_client;
-ORDER BY clientname;
+FROM t_hosts;
+ORDER BY Hostname;

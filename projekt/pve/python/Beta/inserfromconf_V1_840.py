@@ -4,6 +4,8 @@ import cx_Oracle
 import os
 import pysftp
 
+
+avg = []
 run = 1
 stop = 0
 #cx_Oracle Connect funktion----------------------------------------------------------
@@ -124,7 +126,8 @@ while run == 1:
 ##  3. Datenbank zurücksetzen  (Drop Table & Create new)      ##
 ##  4. Client Manuel Hinzufügen                               ##
 ##  5. Host Manuel Hinzufügen                                 ##
-##  6. Client Daten ausgeben                                  ##
+##  6. Daten ausgeben                                         ##
+##  7. SQL*Plus starten                                       ##
 ################################################################
              Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
                     """)
@@ -204,8 +207,47 @@ while run == 1:
                     con.commit()
             # Drop Table und Create
             con.commit()
+
         elif userinput == '6':
+            print("Willkommen im SuperDopeTool, sie haben folgende Auswahlmöglichkeiten")
+            print("""
+            ################################################################
+            ##  1. Alle Clients                                           ##
+            ##  2. Client Durchschnittswerte                              ##
+            ##  3. Anzahl der Clients                                     ##
+            ##  4. Alle Hosts                                             ##
+            ##  5. Host Durchschnittswerte                                ##
+            ################################################################
+                         Gebe [1]  ,  [2]  ,  [3] oder [4] ein!
+                                """)
+            if choice == '1':
                 os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\select_clients.sql")
+
+            elif choice == '2':
+                cursor.execute("SELECT AVG(cores) FROM t_client")
+                avg.append(cursor.fetchall())
+                cursor.execute("SELECT AVG(RAM) FROM t_client")
+                avg.append(cursor.fetchall())
+                cursor.execute("SELECT AVG(disk_space) FROM t_client")
+                avg.append(cursor.fetchall())
+                print("AVG Cores: {avg[0]} \n AVG RAM: {avg[1]} \n AVG HDD: {avg[2]}")
+
+            elif choice == '3':
+                cursor.execute("SELECT COUNT(VMID) FROM t_client")
+
+            elif choice == '4':
+                os.system("sqlplus /nolog @C:\\Users\\Surface\\Documents\\GitHub\\SQL-Python-Projekt\\Vorlagen\\select_hosts.sql")
+
+            elif choice == '5':
+                print("Function not implemented yet.")
+
+
+            else:
+                print("Falsche Eingabe, versuchen sie es erneut")
+
+        elif userinput == '7':
+            os.system("sqlplus ora1/ora1")
+
 
         else:
             print("Falsche Eingabe, versuchen sie es erneut")
