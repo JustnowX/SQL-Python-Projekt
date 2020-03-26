@@ -17,7 +17,7 @@ PROMPT (1) View Database
 PROMPT
 PROMPT (2) Insert new Data
 PROMPT
-PROMPT (3) Search (alpha)
+PROMPT (3) Search (Do not Click)
 PROMPT
 PROMPT (4) Delete Data
 PROMPT
