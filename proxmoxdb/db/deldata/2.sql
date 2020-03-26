@@ -5,7 +5,7 @@ cl scr
 
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
-PROMPT Delete Dataset
+PROMPT Delete Host
 PROMPT
 PROMPT+++++++++++++++++++++++++++++++
 PROMPT
