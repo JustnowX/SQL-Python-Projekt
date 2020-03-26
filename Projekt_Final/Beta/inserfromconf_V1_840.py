@@ -62,7 +62,7 @@ def get_conf():
 #------------------------------------------------------------------------------------
 # Gets List of VMs-------------------------------------------------------------------
 def sliceandinsert():
-    vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\BetaBeta")
+    vm_list = os.listdir(r"C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\Beta")
     vm_list.remove("inserfromconf_V1_840.py")
     vm_list.remove("hostconf")
     vm_list.remove(".100.conf.swp")
