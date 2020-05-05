@@ -1,13 +1,13 @@
 # C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\projekt\pve\python\configs\inserfromconf_V1_420.py
 #import libaries
+import curses
 import cx_Oracle
 import os
 import pysftp
 
-
 #avg = []
-run = 1
-stop = 0
+
+
 #cx_Oracle Connect funktion----------------------------------------------------------
 db_connection_string = 'ora1/ora1'
 con = cx_Oracle.connect(db_connection_string)
@@ -84,14 +84,14 @@ def sliceandinsert():
 
         config.close()
         # passenden ausszug [slice(x,x)] übergeben-----------
-        cores = line2[slice(7, 20)]
-        clientname  = (line3[slice(10, 40)])[slice(-1)]
-        ram  = line4[slice(8, 20)]
-        ip = line5[slice(83, 96)]
-        ostype  = (line6[slice(8, 40)])[slice(-1)]
-        vmid = line7[slice(21, 24)]
-        disk_space = line7[slice(37, 45)]
-        SubnetID  = f"{line5[slice(43, 53)]}0/24"
+        cores =         line2[slice(7, 20)]
+        clientname  =   (line3[slice(10, 40)])[slice(-1)]
+        ram  =          line4[slice(8, 20)]
+        ip =            line5[slice(83, 96)]
+        ostype  =       (line6[slice(8, 40)])[slice(-1)]
+        vmid =          line7[slice(21, 24)]
+        disk_space =    line7[slice(37, 45)]
+        SubnetID  =     f"{line5[slice(43, 53)]}0/24"
         #testprint--------------------------------------------
         #print(f"##{vmid}##")
         #print(f"##{clientname}##")
@@ -114,10 +114,51 @@ def database_reset():
     os.system(r"sqlplus /nolog @C:\Users\Surface\Documents\GitHub\SQL-Python-Projekt\Projekt_Final\SQL_Ordnerstuktur\create.sql")
 
 #----------------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------------
+def database_add_client():
+    print("Geforderte Reihenfolge:")
+    print("VMID, OS Typ, IP, RAM, Cores, Hostname, Disk Space, Clientname")
+    input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
+    insert_list = input_string.split()
 
-while run == 1:
-    while stop == 0:
+
+    print("Sollen folgende Eingaben gespeichert werden?")
+    print(f"VMID: {insert_list[0]}, OS Typ: {insert_list[1]}, IP: {insert_list[2]}, RAM: {insert_list[3]}, Cores: {insert_list[4]}, Hostname: {insert_list[5]}, Disk Space: {insert_list[6]}, CLientname: {insert_list[7]}")
+    choice = input("Sollen die Daten geschrieben werden (y/n)")
+    if choice == 'y':
+        cursor.execute(f"""
+            INSERT
+                INTO t_client (VMID,     OS_Type,    cIP,     RAM, cores,  Hostname,    disk_space, Clientname)
+                VALUES        ({insert_list[0]}, '{insert_list[1]}', '{insert_list[2]}',{insert_list[3]},{insert_list[4]}, '{insert_list[5]}','{insert_list[6]}',   '{insert_list[7]}')
+            """)
+        con.commit()
+        print('Daten wurden erfolgreich geschpeichert')
+    else:
+        break
+#----------------------------------------------------------------------------------------------
+def database_add_host():
+    print("Geforderte Reihenfolge:")
+    print("Host ID, Host IP")
+    input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
+    insert_list = input_string.split()
+
+
+    print("Sollen folgende Eingaben gespeichert werden?")
+    print(f"Host ID: {insert_list[0]}, IP: {insert_list[1]}")
+    choice = input("Sollen die Daten geschrieben werden (y/n)")
+    if choice == 'y':
+        cursor.execute(f"""
+            INSERT
+            INTO t_host (hIP,  Hostname)
+            VALUES       ('{insert_list[1]}','{insert_list[0]}' )
+            """)
+        con.commit()
+    else:
+        break
+#---------------------
+
+
+while 1:
+    while 1:
         os.system("cls")
         print("Willkommen im SuperDopeTool, sie haben folgende Auswahlmöglichkeiten")
         print("""
@@ -131,7 +172,7 @@ while run == 1:
 ##  7. SQL*Plus starten                                       ##
 ################################################################
              Gebe [1]  ,  [2]  ...  [7] ein!
-                    """)
+             """)
 
         userinput = input(":> ")
 
@@ -170,44 +211,10 @@ while run == 1:
             else:
                     break
         elif userinput == '4':
-            print("Geforderte Reihenfolge:")
-            print("VMID, OS Typ, IP, RAM, Cores, Hostname, Disk Space, Clientname")
-            input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
-            insert_list = input_string.split()
-
-
-            print("Sollen folgende Eingaben gespeichert werden?")
-            print(f"VMID: {insert_list[0]}, OS Typ: {insert_list[1]}, IP: {insert_list[2]}, RAM: {insert_list[3]}, Cores: {insert_list[4]}, Hostname: {insert_list[5]}, Disk Space: {insert_list[6]}, CLientname: {insert_list[7]}")
-            choice = input("Sollen die Daten geschrieben werden (y/n)")
-            if choice == 'y':
-                cursor.execute(f"""
-                    INSERT
-                        INTO t_client (VMID,     OS_Type,    cIP,     RAM, cores,  Hostname,    disk_space, Clientname)
-                        VALUES        ({insert_list[0]}, '{insert_list[1]}', '{insert_list[2]}',{insert_list[3]},{insert_list[4]}, '{insert_list[5]}','{insert_list[6]}',   '{insert_list[7]}')
-                    """)
-                con.commit()
-            else:
-                break
+            database_add_client()
 
         elif userinput == '5':
-            print("Geforderte Reihenfolge:")
-            print("Host ID, Host IP")
-            input_string = input("Gib alle Werte getrennt von leerzeichen ein! :> ")
-            insert_list = input_string.split()
-
-
-            print("Sollen folgende Eingaben gespeichert werden?")
-            print(f"Host ID: {insert_list[0]}, IP: {insert_list[1]}")
-            choice = input("Sollen die Daten geschrieben werden (y/n)")
-            if choice == 'y':
-                cursor.execute(f"""
-                    INSERT
-                    INTO t_host (hIP,  Hostname)
-                    VALUES       ('{insert_list[1]}','{insert_list[0]}' )
-                    """)
-                con.commit()
-            # Drop Table und Create
-            con.commit()
+            database_add_host()
 
         elif userinput == '6':
             os.system("cls")
